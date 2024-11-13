@@ -1,4 +1,5 @@
 from modules.fileManager import *
+from modules.productos import *
 
 def menu():
     print('\n======== BIENVENIDO AL SISTEMA DE GESTIÓN DE PRODUCTOS ========')
@@ -10,7 +11,9 @@ def menu():
     opc = int(input('\nSeleccione su opcion: '))
     return opc
 
-productos = loadData('db/productos.json')
+productosRoute = 'db/productos.json'
+
+productos = loadData(productosRoute)
 opc = 10
 
 while opc != 0:
@@ -18,12 +21,15 @@ while opc != 0:
 
     if opc == 1:
         print('registrar producto')
+        productos = registrarProductos(productos)
+        saveData(productosRoute, productos)
 
     elif opc == 2:
         print('registrar materia prima')
 
     elif opc == 3:
         print('listar productos')
+        print(productos)
     
     elif opc == 4:
         print('listar materias primas')
