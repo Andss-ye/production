@@ -1,3 +1,5 @@
+from modules.fileManager import *
+
 def menu():
     print('\n======== BIENVENIDO AL SISTEMA DE GESTIÓN DE PRODUCTOS ========')
     print('1. Registrar producto')
@@ -8,6 +10,7 @@ def menu():
     opc = int(input('\nSeleccione su opcion: '))
     return opc
 
+productos = loadData('db/productos.json')
 opc = 10
 
 while opc != 0:
@@ -31,4 +34,3 @@ while opc != 0:
     
     else:
         print('\nOpcion no valida, ingrese otra')
-        
